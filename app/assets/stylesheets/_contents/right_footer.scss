@@ -1,0 +1,36 @@
+.contents__right__footer{
+  background-color: #ddd;
+  height: 90px;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  &__blank{
+    background-color: $white;
+    height: 50px;
+    width: 100%;
+    margin: 20px;
+    display: flex;
+    justify-content: space-between;
+    &__message{
+      margin-left: 10px;
+      line-height: 50px;
+      font-size: 16px;
+      color: $bold_gray;
+    }
+    &__photo{
+      margin-right: 10px;
+      line-height: 50px;
+      font-size: 20px;
+    }
+  }
+  &--send{
+    background-color: $light_blue;
+    height: 50px;
+    width: 100px;
+    margin: 20px 40px 20px 15px;
+    text-align: center;
+    line-height: 50px;
+    color: white;
+  }
+}

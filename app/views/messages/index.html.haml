@@ -2,15 +2,49 @@
   グループを作成しました
 
 .header
+  .header__right
+    .header__right__groupname
+      test-group
+      .header__right__groupname__members
+        member : sample
+    .header__right__edit
+      Edit
   .header__left
+    .header__left__username
+      test-user 
+    .header__left__icons
+      = fa_icon 'edit'
+      = fa_icon 'cog'
 
 .contents
   .contents__left
     .contents__left__group
       test-group
+      .contents__left__group__message
+        さようなら
+    .contents__left__group
+      test-group
+      .contents__left__group__message
+        さようなら
+
   .contents__right
+    .contents__right__messages
+      .contents__right__messages__message
+        .contents__right__messages__message__info
+          .contents__right__messages__message__info__name
+            test-user
+          .contents__right__messages__message__info__date
+            yyy/mm/dd (Mon) xx:xx:xx
+        .contents__right__messages__message__text
+          こんにちは！
+
+
     .contents__right__footer
-      .contents__right__footer--blank
+      .contents__right__footer__blank
+        .contents__right__footer__blank__message
+          type a message
+        .contents__right__footer__blank__photo
+          = fa_icon 'image'
       .contents__right__footer--send
         Send
 
