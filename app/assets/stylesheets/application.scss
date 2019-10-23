@@ -1,0 +1,18 @@
+@mixin flexbetween() {
+  display: flex;
+  justify-content: space-between;
+}
+
+$white: #FFFFFF;
+$gray: #999999;
+$bold_gray: #434A54;
+$light_blue: #38AEF0;
+
+@import "./reset";
+@import "messages";
+@import "variable";
+@import "font-awesome";
+@import "nav_var";
+@import "header";
+@import "./_contents/left.scss";
+@import "./_contents/right_footer.scss";
