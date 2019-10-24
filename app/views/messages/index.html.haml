@@ -11,7 +11,7 @@
       Edit
   .header__left
     .header__left__username
-      test-user 
+      = current_user.name
     .header__left__icons
       =link_to edit_user_path(current_user), class: "icon" do
         = fa_icon 'edit'
