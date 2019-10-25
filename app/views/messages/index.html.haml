@@ -20,7 +20,7 @@
 .contents
   .contents__left
     .contents__left__group
-      - @groups.each do |group|
+      - current_user.groups.each do |group|
         = link_to edit_group_path(group) do
           = group.name
           .contents__left__group__message
