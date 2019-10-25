@@ -3,7 +3,7 @@
   = form_for @group do |f|
     - if @group.errors.any?
       .chat-group-form__errors
-        %h2= "#{@group.errors.full_messages.count}件のエラーが発生しました。" /バリデーションエラーの場合こっちを表示
+        %h2= "#{@group.errors.full_messages.count}件のエラーが発生しました。" #バリデーションエラーの場合こっちを表示
         %ul
           - @group.errors.full_messages.each do |message|
             %li= message

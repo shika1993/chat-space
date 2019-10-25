@@ -20,13 +20,11 @@
 .contents
   .contents__left
     .contents__left__group
-      test-group
-      .contents__left__group__message
-        さようなら
-    .contents__left__group
-      test-group
-      .contents__left__group__message
-        さようなら
+      - @groups.each do |group|
+        = link_to '#' do
+          = group.name
+          .contents__left__group__message
+            まだメッセージはありません
 
   .contents__right
     .contents__right__messages
