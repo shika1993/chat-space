@@ -3,9 +3,9 @@
 .header
   .header__right
     .header__right__groupname
-      test-group
+      = @name
       .header__right__groupname__members
-        member : sample
+        member : @user
     .header__right__edit
       Edit
   .header__left
@@ -21,7 +21,7 @@
   .contents__left
     .contents__left__group
       - current_user.groups.each do |group|
-        = link_to edit_group_path(group) do
+        = link_to group_messages_path(group) do
           = group.name
           .contents__left__group__message
             まだメッセージはありません
