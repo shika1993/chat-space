@@ -39,11 +39,10 @@
 
 
     .contents__right__footer
-      .contents__right__footer__message
-        = form_for [@group, @message] do |f|
-          .contents__right__footer__message__text
-            = f.text_field :text, placeholder: 'type a message'
-            = fa_icon 'image'
-
-          .contents__right__footer__message__sendbtn
-            = f.submit  "Send"
+      .contents__right__footer__blank
+        .contents__right__footer__blank__message
+          type a message
+        .contents__right__footer__blank__photo
+          = fa_icon 'image'
+      .contents__right__footer--send
+        Send
