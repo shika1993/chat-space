@@ -26,6 +26,13 @@
           width: 100%;
           padding-left: 10px;
         }
+        label{
+          cursor: pointer;
+          line-height: 1;
+          input{
+            display: none;
+          }
+        }
         i{
           background-color: white;
           font-size: 20px;

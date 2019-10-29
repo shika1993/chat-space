@@ -43,7 +43,11 @@
         = form_for [@group, @message] do |f|
           .contents__right__footer__message__text
             = f.text_field :text, placeholder: 'type a message'
-            = fa_icon 'image'
+            %label.label
+              = fa_icon 'image'
+              = f.file_field :image
+              
+            
 
           .contents__right__footer__message__sendbtn
             = f.submit  "Send"
