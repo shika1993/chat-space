@@ -27,7 +27,7 @@ class MessagesController < ApplicationController
 
 
   def set_group
-    @group = Group.find(params[:group_id]) #クリックしたグループ固有のidを持つレコードを取得
+    @group = Group.find(params[:group_id]) #クリックしたグループのidを持つレコードを取得
   end
  
 
