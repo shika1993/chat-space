@@ -1,13 +1,14 @@
-
-
 .header
   .header__right
     .header__right__groupname
-      test-group
+      = @name
       .header__right__groupname__members
-        member : sample
+        member :
+        - @group.group_users.each do |group_user|
+          = group_user.user.name
     .header__right__edit
-      Edit
+      = link_to edit_group_path(@group) do
+        Edit
   .header__left
     .header__left__username
       = current_user.name
@@ -21,30 +22,36 @@
   .contents__left
     .contents__left__group
       - current_user.groups.each do |group|
-        = link_to edit_group_path(group) do
+        = link_to group_messages_path(group) do
           = group.name
           .contents__left__group__message
-            まだメッセージはありません
+            = group.show_last_message
 
   .contents__right
     .contents__right__messages
-      .contents__right__messages__message
-        .contents__right__messages__message__info
-          .contents__right__messages__message__info__name
-            test-user
-          .contents__right__messages__message__info__date
-            yyy/mm/dd (Mon) xx:xx:xx
-        .contents__right__messages__message__text
-          こんにちは！
+      - @messages.each do |message|
+        .contents__right__messages__message
+        
+          .contents__right__messages__message__info
+            .contents__right__messages__message__info__name
+              = message.user.name
+            .contents__right__messages__message__info__date
+              = message.created_at.strftime("%Y/%m/%d %H:%M")
+          .contents__right__messages__message__text
+            =message.text 
+            %br
+            = image_tag message.image.url, class: 'lower-message__image' if message.image.present?
+
+            
 
 
     .contents__right__footer
-      .contents__right__footer__blank
-        .contents__right__footer__blank__message
-          type a message
-        .contents__right__footer__blank__photo
-          = fa_icon 'image'
-      .contents__right__footer--send
-        Send
-
-
+      .contents__right__footer__message
+        = form_for [@group, @message] do |f|
+          .contents__right__footer__message__text
+            = f.text_field :text, placeholder: 'type a message'
+            %label.label
+              = fa_icon 'image'
+              = f.file_field :image
+          .contents__right__footer__message__sendbtn
+            = f.submit  "Send"
