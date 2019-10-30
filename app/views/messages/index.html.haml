@@ -26,14 +26,20 @@
 
   .contents__right
     .contents__right__messages
-      .contents__right__messages__message
-        .contents__right__messages__message__info
-          .contents__right__messages__message__info__name
-            test-user
-          .contents__right__messages__message__info__date
-            yyy/mm/dd (Mon) xx:xx:xx
-        .contents__right__messages__message__text
-          こんにちは？
+      - @messages.each do |message|
+        .contents__right__messages__message
+        
+          .contents__right__messages__message__info
+            .contents__right__messages__message__info__name
+              = message.user.name
+            .contents__right__messages__message__info__date
+              = message.created_at.strftime("%Y/%m/%d %H:%M")
+          .contents__right__messages__message__text
+            =message.text 
+            %br
+            = image_tag message.image.url, class: 'lower-message__image' if message.image.present?
+
+            
 
 
     .contents__right__footer
@@ -44,8 +50,5 @@
             %label.label
               = fa_icon 'image'
               = f.file_field :image
-              
-            
-
           .contents__right__footer__message__sendbtn
             = f.submit  "Send"
