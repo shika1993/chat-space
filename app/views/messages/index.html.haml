@@ -47,7 +47,7 @@
 
     .contents__right__footer
       .contents__right__footer__message
-        = form_for [@group, @message] do |f|
+        = form_for [@group, @message]  do |f|
           .contents__right__footer__message__text
             = f.text_field :text, placeholder: 'type a message'
             %label.label
