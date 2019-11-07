@@ -43,7 +43,6 @@ $(function(){
     e.preventDefault();
     var formData = new FormData(this);
     var url = $(this).attr('action');
-    console.log("発火");
     $.ajax({
       url: (url),  //同期通信でいう『パス』
       type: 'POST',  //同期通信でいう『HTTPメソッド』
@@ -55,7 +54,8 @@ $(function(){
     .done(function(data){
       var html = buildHTML(data);
       $('.contents__right__messages').append(html);
-      $('#message_text').val('');
+      $('#message_text').reset('');
+      $('#message_image').reset('');
       $('.contents__right__footer__message__sendbtn input').prop('disabled', false);
       $('.contents__right__messages').animate({ scrollTop: $('.contents__right__messages')[0].scrollHeight });
     })
