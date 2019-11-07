@@ -1,5 +1,4 @@
 $(function(){
-  
   function buildHTML(message){
     if (message.image.url == null) {
     var html = `
@@ -9,12 +8,11 @@ $(function(){
       ${message.user.name}
     </div>
     <div class="contents__right__messages__message__info__date">
-    ${message.created_at}
+      ${message.created_at}
     </div>
     </div>
     <div class="contents__right__messages__message__text">
       ${message.text}
-    <br>
     </div>
     </div>`
     return html;
@@ -26,14 +24,13 @@ $(function(){
         ${message.user.name}
       </div>
       <div class="contents__right__messages__message__info__date">
-      ${message.created_at}
+        ${message.created_at}
       </div>
       </div>
       <div class="contents__right__messages__message__text">
         ${message.text}
         <br>
-        <img src = '${message.image.url}'></div>
-      <br>
+        <img src = '${message.image.url}'>
       </div>
       </div>`
       return html;
@@ -54,8 +51,7 @@ $(function(){
     .done(function(data){
       var html = buildHTML(data);
       $('.contents__right__messages').append(html);
-      $('#message_text').reset('');
-      $('#message_image').reset('');
+      $('form')[0].reset();
       $('.contents__right__footer__message__sendbtn input').prop('disabled', false);
       $('.contents__right__messages').animate({ scrollTop: $('.contents__right__messages')[0].scrollHeight });
     })
