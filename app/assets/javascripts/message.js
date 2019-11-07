@@ -3,19 +3,19 @@ $(function(){
     var message_image = message.image.url ? message_image = `<img src = '${message.image.url}'></img>` : ``;
     var html = `
     <div class="contents__right__messages__message">
-    <div class="contents__right__messages__message__info">
-    <div class="contents__right__messages__message__info__name">
-      ${message.user.name}
-    </div>
-    <div class="contents__right__messages__message__info__date">
-      ${message.created_at}
-    </div>
-    </div>
-    <div class="contents__right__messages__message__text">
-      ${message.text}
-      <br>
-      ${message_image}
-    </div>
+      <div class="contents__right__messages__message__info">
+        <div class="contents__right__messages__message__info__name">
+          ${message.user.name}
+        </div>
+        <div class="contents__right__messages__message__info__date">
+          ${message.created_at}
+        </div>
+      </div>
+      <div class="contents__right__messages__message__text">
+        ${message.text}
+        <br>
+        ${message_image}
+      </div>
     </div>`
     return html;
     
