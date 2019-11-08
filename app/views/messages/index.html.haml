@@ -28,9 +28,9 @@
             = group.show_last_message
 
   .contents__right
-    .contents__right__messages
+    .contents__right__messages{data: {id: "#{@group.id}"}}
       - @messages.each do |message|
-        .contents__right__messages__message
+        .contents__right__messages__message{data: {id: "#{message.id}"}}
         
           .contents__right__messages__message__info
             .contents__right__messages__message__info__name
@@ -38,7 +38,7 @@
             .contents__right__messages__message__info__date
               = message.created_at.strftime("%Y/%m/%d %H:%M")
           .contents__right__messages__message__text
-            =message.text 
+            =message.text
             %br
             = image_tag message.image.url, class: 'lower-message__image' if message.image.present?
 
