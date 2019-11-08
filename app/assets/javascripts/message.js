@@ -16,8 +16,7 @@ $(function(){
           <br>
           ${message_image}
         </div>
-      </div>
-`
+      </div>`
     return html;
     
   }
@@ -56,20 +55,18 @@ $(function(){
       //ルーティングで設定した通りhttpメソッドをgetに指定
       type: 'get',
       dataType: 'json',
-      //dataオプションでリクエストに値を含める
       data: {id: last_message_id}
-      
     })
     .done(function(messages) {
       var insertHTML = '';
-      messages.forEach(function (message) {//配列messagesの中身一つ一つを取り出し、HTMLに変換したものを入れ物に足し合わせる
-        insertHTML = buildHTML(message); //メッセージが入ったHTMLを取得
-        $('.contents__right__messages').append(insertHTML);//メッセージを追加
+      messages.forEach(function (message) {
+        insertHTML = buildHTML(message);
+        $('.contents__right__messages').append(insertHTML);
       })
-      $('.contents__right__messages').animate({scrollTop: $('.contents__right__messages')[0].scrollHeight}, 'fast');//最新のメッセージが一番下に表示されようにスクロールする。
+      $('.contents__right__messages').animate({scrollTop: $('.contents__right__messages')[0].scrollHeight}, 'fast');
     })
     .fail(function () {
-      alert('自動更新に失敗しました');//ダメだったらアラートを出す
+      alert('自動更新に失敗しました');
     });
   };
   setInterval(reloadMessages, 5000);
