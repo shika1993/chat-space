@@ -6,11 +6,12 @@ class MessagesController < ApplicationController
     @name = Group.find_by(id: params[:group_id]).name
     @message = Message.new
     @messages = @group.messages.includes(:user) #messageテーブルの中からクリックされたグループのidと一致するレコードを取得
+
   end
 
   def create
     @message = @group.messages.new(message_params)
-
+ 
     if @message.save
       respond_to do |format|
         format.json
