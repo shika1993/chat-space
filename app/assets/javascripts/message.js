@@ -49,7 +49,6 @@ $(function(){
     //カスタムデータ属性を利用し、ブラウザに表示されている最新メッセージのidを取得
     last_message_id = $('.contents__right__messages__message:last').data("id");
     group_id = $('.contents__right__messages').data("id");
-    console.log(group_id);
     $.ajax({
       url: `/groups/${group_id}/api/messages`,
       //ルーティングで設定した通りhttpメソッドをgetに指定
