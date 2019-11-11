@@ -16,8 +16,11 @@ $(function(){
           <br>
           ${message_image}
         </div>
-      </div>`
-    return html;
+      </div>
+      `
+
+    
+    return html ;
     
   }
   $('#new_message').on('submit', function(e) {
