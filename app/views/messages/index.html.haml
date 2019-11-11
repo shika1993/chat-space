@@ -12,13 +12,7 @@
   = render partial: "groups/header", locals: { current_user: current_user }
 
 .contents
-  .contents__left
-    .contents__left__group
-      - current_user.groups.each do |group|
-        = link_to group_messages_path(group) do
-          = group.name
-          .contents__left__group__message
-            = group.show_last_message
+  = render partial: "groups/group-info", locals: { group: @group }
 
   .contents__right
     .contents__right__messages{data: {id: "#{@group.id}"}}
